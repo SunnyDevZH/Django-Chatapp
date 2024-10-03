@@ -36,6 +36,10 @@
     <main class="mdl-layout__content">
       <div class="page-content">
 
+        {% for message in chat_messages %}        
+          <div><b>{{ message.author}}:</b> {{ message.text }} <span class="message-date">({{ message.created_at }}<span>)</div>    
+            {% endfor %}
+
         <form action="/chat/" methode="post">
             {% csrf_token %}
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
